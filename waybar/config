@@ -12,7 +12,6 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "custom/bluetooth_devices",
     "pulseaudio",
     "custom/powermenu"
   ],
@@ -24,15 +23,6 @@
     "on-click": "wlogout -b 4",
     "format": "",
     "tooltip": false
-  },
-  "custom/bluetooth_devices": {
-    "exec": "$HOME/.config/waybar/custom_modules/bluetooth_devices.sh",
-    "return-type": "json",
-    "format": "{}",
-    "justify": "center",
-    "rotate": 90,
-    "interval": 5,
-    "on-click": "blueman-manager"
   },
   "hyprland/workspaces": {
     "format": "{icon}",
