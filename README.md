@@ -1,3 +1,3 @@
 Just My dotfiles nothing spacial (:
 
-![image](https://github.com/user-attachments/assets/9429b49b-e818-4d47-8abf-e7b514fe0d7e)
+![image](https://github.com/user-attachments/assets/20b17d1f-fbd5-4248-87dc-3ab17256e054)
