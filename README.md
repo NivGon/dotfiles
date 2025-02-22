@@ -10,4 +10,6 @@ SideBar - Waybar
 
 Application launcher - Rofi
 
-ColorScheme - Catppuccin
+Colorscheme - Catppuccin
+
+(This config is copied from several sources, nothing here is 100% mine)
