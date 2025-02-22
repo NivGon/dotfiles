@@ -1,5 +1,4 @@
 <div align="center">
-  
 <h1>My Hyprland config</h1>
 
 Terminal - Kitty
