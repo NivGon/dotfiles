@@ -55,12 +55,10 @@
     "cpu": {
         "interval": 3,
         "format": "{usage}% ",
-        "on-click": "foot --app-id htop htop"
     },
     "memory": {
         "interval": 3,
         "format": "{}% ",
-        "on-click": "foot --app-id htop htop",
         "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
         "states": {
             "critical": 80
