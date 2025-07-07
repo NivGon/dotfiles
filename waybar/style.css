@@ -1,80 +1,159 @@
+@import url("./colors.css");
+
 * {
-  border: none;
-  font-family: "Hack", "Font Awesome 6 Pro";
-  font-size: 14px;
-  font-weight: 600;
-  background: none;
+    border: none;
+    border-radius: 1px;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Pro";
+    font-size: 15px;
+    min-height: 0;
 }
 
 window#waybar {
-  color: #a5adcb;
+    background-color: @mantle;
+    color: @text;
 }
-.modules-left,
-.modules-right,
-.modules-center {
-  border-radius: 6px;
-  background: #181926;
-  padding: 12px 0;
+
+window#waybar.hidden {
+    opacity: 0.2;
 }
+
 tooltip {
-  color: #a5adcb;
-  background-color: #181927;
-  text-shadow: none;
+    background-color: @base;
+    border: 1px solid @surface1;
 }
 
-tooltip * {
-  color: #a5adcb;
-  text-shadow: none;
-}
-.modules-center {
+tooltip label {
+    color: @text;
 }
 
-#custom-sep {
-  color: #494d64;
-  margin: 4px 0;
+button {
+    border: none;
+    border-radius: 1;
 }
-#workspaces,
-#clock,
-#custom-powermenu,
-#pulseaudio,
-#tray {
+
+button:hover {
+    background: inherit;
+    box-shadow: inherit;
 }
-#workspaces {
-  border-radius: 4px;
-}
+
 #workspaces button {
-  color: #5b6078;
-  background: none;
-  margin: 0px 4px 0px 1px;
-  padding: 0;
+    padding: 0 0;
+    background-color: @mantle;
+    margin: 0px 8px 0px 1px;
+    color: @text;
 }
+
 #workspaces button:hover {
-  color: #a6da95;
-  box-shadow: inherit;
-  text-shadow: inherit;
-}
-#workspaces button.active {
-    color: #f5bde6;
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
 
-#temperature {
-  color: #eed49f;
+#workspaces button.focused {
+    box-shadow: inset 0 -3px @text;
 }
+
+#workspaces button.urgent {
+    }
+
+#taskbar button.active {
+    background-image: linear-gradient(0deg, @surface1, @mantle);
+}
+
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#memory,
+#cpu,
+#custom-kernel,
+#tray {
+    padding: 0 10px;
+    margin: 3px 2px;
+    color: @text;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+    padding-left: 5px;
+}
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#custom-kernel {
+    background-color: @sky;
+    color: @mantle;
+}
+
 #clock {
-  font-weight: 600;
-  color: #8bd5ca;
-}
-#custom-bluetooth_devices {
-  color: #8aadf4;
-}
-#pulseaudio {
-  color: #a6da95;
-}
-#pulseaudio.muted {
-  color: #ed8796;
+    background-color: @green;
+    color: @mantle;
+    margin-right: 5px;
 }
 
-#custom-powermenu {
-  margin: 12px 0 0 0;
-  color: #6e738d;
+@keyframes blink {
+    to {
+        background-color: @mantle;
+        color: @text;
+    }
+}
+
+label:focus {
+    background-color: @mantle;
+}
+
+#cpu {
+    background-color: @mauve;
+    color: @mantle;
+    min-width: 45px;
+}
+
+#memory {
+    background-color: @red;
+    color: @mantle;
+}
+
+#network {
+    background-color: @peach;
+    color: @mantle;
+}
+
+#network.disconnected {
+    background-color: red;
+    color: @mantle;
+}
+
+#bluetooth {
+    background-color: @maroon;
+    color: @mantle;
+    min-width: 40px;
+}
+
+#pulseaudio {
+    background-color: @yellow;
+    color: @mantle;
+}
+
+#pulseaudio.muted {
+    background-color: red;
+    color: @mantle;
+}
+
+#tray {
+    background-color: @base;
+    color: @text;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @mantle;
 }
