@@ -1,79 +1,102 @@
 {
-  "layer": "top",
-  "position": "left",
-  "width": 28,
-  "margin": "2 0 2 2",
-  "spacing": 2,
-  "modules-left": [
-    "clock",
-    "tray"
-  ],
-  "modules-center": [
-    "hyprland/workspaces"
-  ],
-  "modules-right": [
+    "output": "HDMI-A-1",
+    "layer": "top",
+    "position": "top",
+    "margin": "0 0 0 0",
+    "height": 26,
+    "spacing": 1,
+    "modules-left": [
+	"hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+    "custom/kernel",
+    "cpu",
+    "memory",
+    "network",
     "pulseaudio",
-    "custom/powermenu"
-  ],
-  "custom/sep": {
-    //    "format": "──"
-    "format": ""
-  },
-  "custom/powermenu": {
-    "on-click": "wlogout -b 4",
-    "format": "",
-    "tooltip": false
-  },
-  "hyprland/workspaces": {
+    "clock",
+    "custom/weather"
+    ],
+    
+     "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "format-icons": {
       "active": "",
-      "urgent": "",
+      "urgent": "",
       "default": ""
     }
-  },
-  "clock": {
-    "tooltip": false,
-    "justify": "center",
-    "format": "{:%H\n%M}",
-    "format-alt": "{:%y\n%m\n%d}",
-  },
-  "tray": {
-    "icon-size": 18,
-    "show-passive-items": "true"
-  },
-  "temperature": {
-    "rotate": 0,
-    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-    "critical-threshold": 80,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
-  },
-  "pulseaudio": {
-    "rotate": 0,
-    "format": "{icon}\n{volume}",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-muted": "MUTE ",
-    "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        ""
-      ]
+  },    
+  "bluetooth": {
+        "format-on": "bt ",
+        "format-off": "bt ({status}) ",
+        "format-connected": "{device_alias} ",
+        "format-connected-battery": "{device_alias} [{device_battery_percentage}%] ",
+        "format-device-preference": [ "ugreen_1", "ugreen_2" ],
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
-    "scroll-step": 3,
-    "on-click": "pavucontrol",
-   }, 
-},
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "clock": {
+         "tooltip": false,
+    	"format": "{:%H:%M }",
+    	"format-alt": "{:%y/%m/%d }"
+    },
+    "cpu": {
+        "interval": 3,
+        "format": "{usage}% ",
+        "on-click": "foot --app-id htop htop"
+    },
+    "memory": {
+        "interval": 3,
+        "format": "{}% ",
+        "on-click": "foot --app-id htop htop",
+        "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+        "states": {
+            "critical": 80
+        }
+    },
+    "network": {
+        "interval": 60,
+        "interface-ethernet": "enp1s*",
+        "interface-wifi": "wlan0",
+        "format-ethernet": "eth ",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "(No IP) ",
+        "format-disconnected": "Disconnected ⚠"
+    },
+    "custom/kernel": {
+        "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
+        "format": "{} "
+    },
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": ""
+        },
+         "on-click": "playerctl play-pause"
+    }
+}
