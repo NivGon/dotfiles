@@ -11,5 +11,4 @@ Colorscheme - Catppuccin
 
 (This config is copied from several sources, nothing here is 100% mine)
 
-
-![image](https://github.com/user-attachments/assets/20b17d1f-fbd5-4248-87dc-3ab17256e054)
+![2025-07-07-200214_hyprshot](https://github.com/user-attachments/assets/3ebec2e3-3205-4f96-8ba4-b75d133daff7)
